@@ -3,8 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <title>Таблиця</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function checkPasswordMatch() {
+            var password = $("#txtNewPassword").val();
+            var confirmPassword = $("#txtConfirmPassword").val();
+
+            if (password != confirmPassword)
+                $("#divCheckPasswordMatch").html("Паролі не співпадають!");
+            else
+                $("#divCheckPasswordMatch").html("Паролі співпадають");
+        }
+        //--></script>
 </head>
 <body bgcolor="#0D1117" text="#C0C0C0">
+
     <style type="text/css">
         span.inlineBlock {
             display: inline-block;
@@ -33,14 +46,14 @@
         }
 
         .layer3 {
-            width: 1220px; /* Ширина */
+            width: 600px; /* Ширина */
             padding: 25px; /* Поля */
-            background: #0D1117; /* Колір фона */
+            background: #35445C; /* Колір фона */
         }
 
         .header1 {
             height: 100px;
-            background: radial-gradient(#2D3A4F, #0D1117);
+            background: radial-gradient(#35445C, #0D1117);
         }
 
         .content1 {
@@ -53,7 +66,6 @@
             top: 0;
             background-color: #1D3740;
             margin: 8px;
-            
         }
 
             .nav a {
@@ -160,14 +172,16 @@
         .colortext1 {
             color: #FF8C00;
         }
+
         #user {
             width: 90%; /* Ширина поля в пикселах */
             height: 80px;
         }
+
         .layer4 {
-          
             margin-top: 0px;
         }
+
         @import url(https://fonts.googleapis.com/css?family=Lora:400,700&subset=latin,cyrillic);
 
         *, :after, :before {
@@ -296,18 +310,17 @@
                 bottom: -18px;
                 right: -18px;
             }
-       
     </style>
 
     <div class="rr">
         <!-- The sidebar -->
-
         <div class="sidebar">
             <h2 align="center">Лабораторна №13</h2>
-            <a class="active" href="index.html">Таблиця оцінювання</a>
+            <a href="index.html">Таблиця оцінювання</a>
             <a href="index1.html">Форма реєстрації користувача.</a>
-            <a href="index2.html">Опитування.</a>
-            <a href="index3.html">Music</a>
+            <a  href="index2.html">Опитування.</a>
+            <a class="active" href="index3.html">Music</a>
+
         </div>
 
         <!-- Page content -->
@@ -315,92 +328,30 @@
             <div align="right" class="nav">
                 .
             </div>
-           
-                <div class="header1"></div>
-                <div class="post-header">
-                    <div class="post-cat">
-                        <a href="https://www.facebook.com/dmutro.tereshkovych/">Дмитро Володимирович</a>
-                    </div>
-                    <div class="post-title">
-                        <h2>
-                            <a href="#">Сайтєц</a>
-                        </h2>
-                    </div>
-                    <div class="post-meta">Автор <a href="https://www.instagram.com/kyrylchuk_of/">Кирильчук Олександр</a>
-                    <p>На даній сторінці розміщена форма за допомогою якої користувач зможе залишити відгук про сайт.</p>
-                    </div>
-                    <div class="border">
-                        <span>Для</span>
-                        <span></span>
-                    </div>
-                </div>
-            <form action="mailto:o.kykylchuk12@gmail.com" method="post" id="myform"></form>
-            <br><br><br><br><br><br><br><br>
 
-
-
+            <br /><br /><br /><br /><br /><br />
             <table align="center" width="520px" border="5px" bordercolor="  #000000" bgcolor="#19202B">
-                <tbody>
+                <thead>
                     <tr>
-                        <td>Ім'я</td>
-                        <td><input type="text" name="Name" form="myform" required placeholder="Ваше імя"></td>
-                    </tr>
-                    <tr>
-                        <td>Ел. адрес</td>
-                        <td><input type="text" name="email" form="myform" required placeholder="Ваша е-адреса"></td>
-                    </tr>
-                    <tr>
-                        <td>Поле для відгуку</td>
-                        <td><center><input type="text" id="user" name="coments" form="myform" placeholder="Залишіть відгук про сайт"></center></td>
-                    </tr>
-                    <tr>
-                        <td>Оцінка сайту</td>
-                        <td>
-                            <input type="radio" name="answer" value="yes" checked /> 1
-                            <input type="radio" name="answer" value="no" /> 2
-                            <input type="radio" name="answer" value="yes" /> 3
-                            <input type="radio" name="answer" value="no" /> 4
-                            <input type="radio" name="answer" value="no" /> 5
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th align="right" colspan="2">
-                            <input type="submit" name="add" form="myform" />
+                        <th colspan="2">
+                            <p>Cnv Sound, Vol. 14 </p>
+                            <audio controls>
+                                <source src="Doksblog.com-PURE-NEGGA-Cnv-Sound-Vol14.mp3" type="audio/ogg; codecs=vorbis" controls="controls">
+                                <source src="Doksblog.com-PURE-NEGGA-Cnv-Sound-Vol14.mp3" type="audio/mpeg">
+                            </audio>
                         </th>
                     </tr>
-                </tfoot>
+                </thead>
             </table>
+            <br />
+            <center>
+                <img src="https://toppng.com/uploads/preview/bob-marley-11530968439jdxwksygvt.png" width="600" height="600" />
+            </center>
 
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-            <div align="bottom" class="header1"><br><center><h1><div class="rrr">Дивлюсь на котика :)</div></h1></center></div>
 
-            <div class="layer3">
-                <img src="https://github.com/Kyrylchuk-of/kamikadze.lab_12/blob/main/wallpaperflare.com_wallpaper.jpg?raw=true" width="1220px" height="90%" />
-            </div>
 
-            <div class="footer">
-                <!-- подвал сайта -->
-
-                <table border="1px;" style="float: left">
-                    <hr color="#808080" size="4px" />
-                    <tbody>
-                        <tr>
-                            <td>Мій коледж</td>
-                            <td><a href="http://www.tehcollege.rv.ua/" target="_blank">→→→→→ тисни тут →→→→→</a></td>
-                        </tr>
-                        <tr>
-                            <td>Мій Instagram</td>
-                            <td><a href="https://www.instagram.com/kyrylchuk_of/" target="_blank">→→→→→ тисни тут →→→→→</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h4>По всім запитанням звертатися сюди: <a href="mailto:o.kykylchuk12@gmail.com" target="_blank">o.kykylchuk12@gmail.com</a></h4>
-                <hr><center><h4 align="left">Сайт сворений спеціально для лабораторної роботи з обчислювальних систем для викладача Дмитра Володимировича.</h4></center>
-            </div>
         </div>
-        </div>
-</body>
+    </div>
+
 </html>
