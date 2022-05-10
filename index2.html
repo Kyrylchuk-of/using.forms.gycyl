@@ -1,0 +1,470 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Таблиця</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function checkPasswordMatch() {
+            var password = $("#txtNewPassword").val();
+            var confirmPassword = $("#txtConfirmPassword").val();
+
+            if (password != confirmPassword)
+                $("#divCheckPasswordMatch").html("Паролі не співпадають!");
+            else
+                $("#divCheckPasswordMatch").html("Паролі співпадають");
+        }
+        //--></script>
+</head>
+<body bgcolor="#0D1117" text="#C0C0C0">
+    <bgsound src="путь_к_файлу/имя_файла.mp3" loop="-1" balance="0" volume="0">
+        <style type="text/css">
+            span.inlineBlock {
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            .parent {
+                width: 100%;
+                background-color: red;
+            }
+
+            .child1 {
+                width: 40%;
+                background-color: #2D3A4F;
+            }
+
+            .child2 {
+                width: 60%;
+                background: linear-gradient(to bottom left, #191970 50%, #181A36 50%);
+            }
+
+            .blk {
+                padding: 20px;
+                border: 2px solid #E81E25;
+                margin: 10px;
+            }
+
+            .layer3 {
+                width: 600px; /* Ширина */
+                padding: 25px; /* Поля */
+                background: #35445C; /* Колір фона */
+            }
+
+            .header1 {
+                height: 100px;
+                background: radial-gradient(#35445C, #0D1117);
+            }
+
+            .content1 {
+                background: linear-gradient(to left, #2D3A4F 0%, #0D1117 100%);
+            }
+
+            .nav {
+                width: 100%;
+                position: fixed;
+                top: 0;
+                background-color: #1D3740;
+                margin: 8px;
+            }
+
+                .nav a {
+                    float: left;
+                    padding: 12px 14px;
+                    display: block;
+                    color: #fff;
+                    font-size: 18px;
+                }
+
+            nav a:hover {
+                color: #000;
+                background: #f8bbd0;
+            }
+
+            .main {
+                padding: 14px;
+                margin-top: 35px;
+                height: 120px;
+            }
+
+            .footer {
+                height: 150px;
+                margin-top: 25px;
+                background: linear-gradient(to bottom, #19202B 0%,#2D3A4F 100%);
+                text-align: center;
+                font-size: 14px;
+            }
+            /* The side navigation menu */
+            .sidebar {
+                margin: 0;
+                padding: 0;
+                width: 200px;
+                background-color: #19202B;
+                position: fixed;
+                height: 100%;
+                overflow: auto;
+            }
+
+                /* Sidebar links */
+                .sidebar a {
+                    display: block;
+                    color: #C0C0C0;
+                    padding: 16px;
+                    text-decoration: none;
+                }
+
+                    /* Active/current link */
+                    .sidebar a.active {
+                        background-color: #35445C;
+                        color: white;
+                    }
+
+                    /* Links on mouse-over */
+                    .sidebar a:hover:not(.active) {
+                        background-color: #555;
+                        color: white;
+                    }
+
+            /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+            div.content {
+                margin-left: 200px;
+                padding: 1px 16px;
+                height: 1000px;
+            }
+
+            /* On screens that are less than 700px wide, make the sidebar into a topbar */
+            @media screen and (max-width: 700px) {
+                .sidebar {
+                    width: 100%;
+                    height: auto;
+                    position: relative;
+                }
+
+                    .sidebar a {
+                        float: left;
+                    }
+
+                div.content {
+                    margin-left: 0;
+                }
+            }
+
+            /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+            @media screen and (max-width: 400px) {
+                .sidebar a {
+                    text-align: center;
+                    float: none;
+                }
+            }
+
+            .rr {
+                font-family: Pompadur, 'Comic Sans MS', cursive;
+            }
+
+            .rrr {
+                font-family: Marker Felt, fantasy;
+            }
+
+            .colortext {
+                color: #0000ff;
+            }
+
+            .colortext1 {
+                color: #FF8C00;
+            }
+
+            #user {
+                width: 90%; /* Ширина поля в пикселах */
+                height: 80px;
+            }
+
+            .layer4 {
+                margin-top: 0px;
+            }
+
+            @import url(https://fonts.googleapis.com/css?family=Lora:400,700&subset=latin,cyrillic);
+
+            *, :after, :before {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            .post-header {
+                position: relative;
+                background: #19202B;
+                padding: 25px;
+                text-align: center;
+                z-index: 2;
+            }
+
+            .post-cat a {
+                display: inline-block;
+                font-size: 10px;
+                margin: 5px 25px;
+                color: white;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                background: #937338;
+                line-height: 20px;
+                height: 20px;
+                position: relative;
+            }
+
+                .post-cat a:before, .post-cat a:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    border: 10px solid #937338;
+                    top: 0;
+                }
+
+                .post-cat a:before {
+                    left: 0;
+                    transform: translateX(-100%);
+                    border-left-color: transparent;
+                }
+
+                .post-cat a:after {
+                    right: 0;
+                    transform: translateX(100%);
+                    border-right-color: transparent;
+                }
+
+            .post-title {
+                text-transform: uppercase;
+            }
+
+                .post-title h2 {
+                    font-family: 'Lora', serif;
+                    font-weight: normal;
+                    line-height: 1.8em;
+                    font-size: 20px;
+                    color: white;
+                    margin: 13px 0 8px;
+                    letter-spacing: 0.08em;
+                }
+
+            .post-meta {
+                font-size: 10px;
+                text-transform: uppercase;
+                color: #937338;
+                letter-spacing: 0.2em;
+            }
+
+            .border {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                bottom: 8px;
+                left: 8px;
+                overflow: hidden;
+                z-index: -1;
+            }
+
+                .border:before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid #937338;
+                }
+
+                .border span:before, .border span:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    border: 1px solid #937338;
+                    background: #19202B;
+                }
+
+                .border span:nth-child(1):before {
+                    top: -18px;
+                    left: -18px;
+                }
+
+                .border span:nth-child(1):after {
+                    top: -18px;
+                    right: -18px;
+                }
+
+                .border span:nth-child(2):before {
+                    bottom: -18px;
+                    left: -18px;
+                }
+
+                .border span:nth-child(2):after {
+                    bottom: -18px;
+                    right: -18px;
+                }
+        </style>
+
+        <div class="rr">
+            <!-- The sidebar -->
+            <div class="sidebar">
+                <h2 align="center">Лабораторна №13</h2>
+                <a href="index.html">Таблиця оцінювання</a>
+                <a href="index1.html">Форма реєстрації користувача.</a>
+                <a class="active" href="index2.html">Опитування.</a>
+
+
+            </div>
+
+            <!-- Page content -->
+            <div class="content">
+                <div align="right" class="nav">
+                    .
+                </div>
+
+                <div class="header1"></div>
+                <div class="post-header">
+                    <div class="post-cat">
+                        <a href="https://www.facebook.com/dmutro.tereshkovych/">Дмитро Володимирович</a>
+                    </div>
+                    <div class="post-title">
+                        <h2>
+                            <a href="#">Сайтєц</a>
+                        </h2>
+                    </div>
+                    <div class="post-meta">
+                        Автор <a href="https://www.instagram.com/kyrylchuk_of/">Кирильчук Олександр</a>
+                        <p>На даній сторінці розміщена форма за допомогою якої користувач може пройти реєстрацію сайт.</p>
+                    </div>
+                    <div class="border">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <form method="post" id="myform"></form>
+
+                <br><br><br><br><br><br><br><br>
+
+                <table align="center" width="520px" border="5px" bordercolor="  #000000" bgcolor="#19202B">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Опитування</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ваше ім'я</td>
+                            <td><input type="text" name="Name" form="myform" required placeholder="name"></td>
+                        </tr>
+                        <tr>
+                            <td>Стать</td>
+                            <td>
+                                <select required>
+                                    <option value="1">Чоловік</option>
+                                    <option value="2">Жінка</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Чі піддержуєте ви путінський режим</td>
+                            <td>
+                                <input type="radio" name="ripa" value="yes" />так
+                                <input type="radio" name="ripa" value="no" checked />ні
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ваша освіта</td>
+                            <td>
+                                <select required>
+                                    <option value="1">Не повна середня</option>
+                                    <option value="2">Середня</option>
+                                    <option value="3">Середня фахова</option>
+                                    <option value="4">Не повна вища</option>
+                                    <option value="5">Вища</option>
+                                    <option value="6">Магістр</option>
+                                    <option value="7">Професор</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ваш рід занять</td>
+                            <td>
+                                <select required>
+                                    <option value="1">Учень</option>
+                                    <option value="2">Студент</option>
+                                    <option value="3">Робітник/службовець</option>
+                                    <option value="4">Пенсіонер</option>
+                                    <option value="5">Безробітний</option>
+                                    <option value="6">Магістр</option>
+                                    <option value="7">Професор</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Операційна система якою користуєтесь</td>
+                            <td>
+                                <select required>
+                                    <option value="1">Windows</option>
+                                    <option value="2">Linux</option>
+                                    <option value="3">Mac</option>
+                                    <option value="4">Інша</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th align="right" colspan="2">
+                                <input type="submit" name="add" form="myform" bgcollor="red" />
+                                <input type="reset" name="pip" form="myform" />
+                            </th>
+                        </tr>
+                    </tfoot>
+                </table>
+                <p>Аудио в HTML 5</p>
+                <audio controls>
+                    <source src="audio/music.ogg" type="audio/ogg; codecs=vorbis" controls="controls">
+                    <source src="audio/music.mp3" type="audio/mpeg">
+                    Тег audio не поддерживается вашим браузером.
+                    <a href="Doksblog.com-PURE-NEGGA-Cnv-Sound-Vol14.mp3">Скачайте музыку</a>.
+                </audio>
+
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+                <div align="bottom" class="header1"><br><center><h1><div class="rrr">Дивлюсь на котика :)</div></h1></center></div>
+
+                <div class="layer3">
+                    <img src="https://github.com/Kyrylchuk-of/kamikadze.lab_12/blob/main/wallpaperflare.com_wallpaper.jpg?raw=true" width="1220px" height="90%" />
+                </div>
+
+                <div class="footer">
+                    <!-- подвал сайта -->
+
+                    <table border="1px;" style="float: left">
+                        <hr color="#808080" size="4px" />
+                        <tbody>
+                            <tr>
+                                <td>Мій коледж</td>
+                                <td><a href="http://www.tehcollege.rv.ua/" target="_blank">→→→→→ тисни тут →→→→→</a></td>
+                            </tr>
+                            <tr>
+                                <td>Мій Instagram</td>
+                                <td><a href="https://www.instagram.com/kyrylchuk_of/" target="_blank">→→→→→ тисни тут →→→→→</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h4>По всім запитанням звертатися сюди: <a href="mailto:o.kykylchuk12@gmail.com" target="_blank">o.kykylchuk12@gmail.com</a></h4>
+                    <hr><center><h4 align="left">Сайт сворений спеціально для лабораторної роботи з обчислювальних систем для викладача Дмитра Володимировича.</h4></center>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

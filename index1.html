@@ -3,6 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <title>Таблиця</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function checkPasswordMatch() {
+            var password = $("#txtNewPassword").val();
+            var confirmPassword = $("#txtConfirmPassword").val();
+
+            if (password != confirmPassword)
+                $("#divCheckPasswordMatch").html("Паролі не співпадають!");
+            else
+                $("#divCheckPasswordMatch").html("Паролі співпадають");
+        }
+        //--></script>
 </head>
 <body bgcolor="#0D1117" text="#C0C0C0">
     <style type="text/css">
@@ -53,7 +65,6 @@
             top: 0;
             background-color: #1D3740;
             margin: 8px;
-            
         }
 
             .nav a {
@@ -160,14 +171,16 @@
         .colortext1 {
             color: #FF8C00;
         }
+
         #user {
             width: 90%; /* Ширина поля в пикселах */
             height: 80px;
         }
+
         .layer4 {
-          
             margin-top: 0px;
         }
+
         @import url(https://fonts.googleapis.com/css?family=Lora:400,700&subset=latin,cyrillic);
 
         *, :after, :before {
@@ -296,16 +309,14 @@
                 bottom: -18px;
                 right: -18px;
             }
-       
     </style>
 
     <div class="rr">
         <!-- The sidebar -->
-
         <div class="sidebar">
             <h2 align="center">Лабораторна №13</h2>
-            <a class="active" href="index.html">Таблиця оцінювання</a>
-            <a href="index1.html">Форма реєстрації користувача.</a>
+            <a href="index.html">Таблиця оцінювання</a>
+            <a class="active" href="index1.html">Форма реєстрації користувача.</a>
             <a href="index2.html">Опитування.</a>
 
         </div>
@@ -315,63 +326,111 @@
             <div align="right" class="nav">
                 .
             </div>
-           
-                <div class="header1"></div>
-                <div class="post-header">
-                    <div class="post-cat">
-                        <a href="https://www.facebook.com/dmutro.tereshkovych/">Дмитро Володимирович</a>
-                    </div>
-                    <div class="post-title">
-                        <h2>
-                            <a href="#">Сайтєц</a>
-                        </h2>
-                    </div>
-                    <div class="post-meta">Автор <a href="https://www.instagram.com/kyrylchuk_of/">Кирильчук Олександр</a>
-                    <p>На даній сторінці розміщена форма за допомогою якої користувач зможе залишити відгук про сайт.</p>
-                    </div>
-                    <div class="border">
-                        <span>Для</span>
-                        <span></span>
-                    </div>
+
+            <div class="header1"></div>
+            <div class="post-header">
+                <div class="post-cat">
+                    <a href="https://www.facebook.com/dmutro.tereshkovych/">Дмитро Володимирович</a>
                 </div>
-            <form action="mailto:o.kykylchuk12@gmail.com" method="post" id="myform"></form>
+                <div class="post-title">
+                    <h2>
+                        <a href="#">Сайтєц</a>
+                    </h2>
+                </div>
+                <div class="post-meta">Автор <a href="https://www.instagram.com/kyrylchuk_of/">Кирильчук Олександр</a>
+                <p>На даній сторінці розміщена форма за допомогою якої користувач може пройти реєстрацію сайт.</p>
+                </div>
+                <div class="border">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <form  method="post" id="myform"></form>
+
             <br><br><br><br><br><br><br><br>
-
-
 
             <table align="center" width="520px" border="5px" bordercolor="  #000000" bgcolor="#19202B">
                 <tbody>
                     <tr>
-                        <td>Ім'я</td>
-                        <td><input type="text" name="Name" form="myform" required placeholder="Ваше імя"></td>
+                        <td>Логін:</td>
+                        <td><input type="text" name="Name" form="myform" required placeholder="login"></td>
                     </tr>
                     <tr>
-                        <td>Ел. адрес</td>
-                        <td><input type="text" name="email" form="myform" required placeholder="Ваша е-адреса"></td>
+                        <td> Пароль:</td>
+                        <td>
+                                <input maxlength="12" required type="password" form="myform" id="txtNewPassword"placeholder="password" />
+                        </td>
                     </tr>
                     <tr>
-                        <td>Поле для відгуку</td>
-                        <td><center><input type="text" id="user" name="coments" form="myform" placeholder="Залишіть відгук про сайт"></center></td>
+                        <td> Підтвердіть пароль:</td>
+                        <td>
+                           
+                                <input required type="password" form="myform" id="txtConfirmPassword" placeholder="retry" onkeyup="checkPasswordMatch();" />
+                            
+                            <div class="registrationFormAlert" id="divCheckPasswordMatch">
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>Оцінка сайту</td>
                         <td>
-                            <input type="radio" name="answer" value="yes" checked /> 1
-                            <input type="radio" name="answer" value="no" /> 2
-                            <input type="radio" name="answer" value="yes" /> 3
-                            <input type="radio" name="answer" value="no" /> 4
-                            <input type="radio" name="answer" value="no" /> 5
+                            <input type="radio" name="answer" value="yes" checked /> Мужик
+                            <input type="radio" name="answer" value="no" /> Жінка
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Вкажіть місто:</td>
+                        <td style="background-color: #0D1117 "><center>
+                            <select name="sity" size=5 form="myform" required >
+                                <option value="Kiyev"> Київ </option>
+                                <option value="Lviv"> Львів </option>
+                                <option value="Kharkiv"> Харків </option>
+                                <option value="Dnipro"> Дніпро </option>
+                                <option value="Odesa"> Одеса </option>
+                                <option value="Rivne"> Рівне </option>
+                                <option value="Pedro"> Житомир </option>
+                                <option value="Poltava"> Полтава </option>
+                                <option value="Ternopil"> Тернопіль </option>
+                                <option value="Symy"> Суми </option>
+                                <option value="Lyck"> Луцьк </option>
+                                <option value="Herson"> Херсон </option>
+                                <option value="Zaporiga"> Запоріжжя </option>
+                                <option value="Ivano-Frankivsk"> Івано-Франківськ </option>
+                                <option value="Hmelnytskiy"> Хмельницький </option>
+                                <option value="Vinnytsa"> Вінниця  </option>
+                                <option value="Krivyi Rig"> Кривий Ріг </option>
+                                <option value="Ujgorod"> Ужгород </option>
+                                <option value="Mikolaiv"> Миколаїв </option>
+                                <option value="Chernivtsi"> Чернівці </option>
+                            </select>
+                            </center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ваші інтереси:</td>
+                        <td>
+                            <input type="radio" name="ripa" value="yes" checked />Музика
+                            <input type="radio" name="ripa" value="no" />Програмування
+                            <input type="radio" name="ripa" value="yes" />Пиво
+                            <input type="radio" name="ripa" value="no" />Дівчата
+                            <input type="radio" name="ripa" value="yes" /> Риболовля
+                            <input type="radio" name="ripa" value="yes" /> Спати
+                            <input type="radio" name="ripa" value="yes" />Біг
+                            <input type="radio" name="ripa" value="no" />Все разом)
                         </td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
                         <th align="right" colspan="2">
-                            <input type="submit" name="add" form="myform" />
+                            <input type="submit" name="add" form="myform" bgcollor="red" />
+                            <input type="reset" name="pip" form="myform" />
                         </th>
                     </tr>
                 </tfoot>
             </table>
+
+
 
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -401,6 +460,6 @@
                 <hr><center><h4 align="left">Сайт сворений спеціально для лабораторної роботи з обчислювальних систем для викладача Дмитра Володимировича.</h4></center>
             </div>
         </div>
-        </div>
+    </div>
 </body>
 </html>
